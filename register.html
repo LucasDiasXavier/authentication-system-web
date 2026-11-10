@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-sans antialiased dark:bg-neutral-950">
+    <main class="min-h-screen flex items-center justify-center px-4 py-8 md:px-8">
+      <div class="w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-neutral-900 dark:ring-neutral-800">
+        <section class="p-6 sm:p-10">
+          <div class="mb-8">
+            <h1 class="mb-3 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50">
+              Criar conta
+            </h1>
+            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+              Preencha os dados abaixo para começar.
+            </p>
+          </div>
+
+          <!-- Feedback geral (erro / sucesso) -->
+          <div id="feedback" role="alert" class="mb-6 hidden rounded-xl px-4 py-3 text-sm font-medium">
+        </div>
+
+          <form id="form-registro" class="space-y-5" novalidate>
+            <!-- Nome -->
+            <div>
+              <label for="nome" class="mb-2 inline-block text-sm font-semibold text-slate-900 dark:text-slate-50">
+                Nome completo
+              </label>
+              <div class="group relative">
+                <i class="fa-regular fa-user pointer-events-none absolute left-4 top-1/2 w-4 -translate-y-1/2 text-center text-sm text-slate-400 transition-colors group-focus-within:text-teal-600 group-has-[.campo-erro]:text-red-500! dark:text-slate-500 dark:group-focus-within:text-teal-400"
+                aria-hidden="true"></i>
+                <input type="text" id="nome" name="nome" placeholder="Como você se chama?"
+                  autocomplete="name" required
+                  class="w-full rounded-xl bg-white py-3 pl-11 pr-4 text-sm text-slate-900 outline-1 -outline-offset-1 outline-slate-300 placeholder:text-slate-400 transition hover:outline-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-teal-600 dark:bg-neutral-800 dark:text-slate-50 dark:outline-neutral-700 dark:hover:outline-neutral-600"/>
+              </div>
+              <div id="nome-erro" class="min-h-2"></div>
+            </div>
+
+            <!-- E-mail -->
+            <div>
+              <label
+                for="email"
+                class="mb-2 inline-block text-sm font-semibold text-slate-900 dark:text-slate-50">
+                E-mail
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Informe seu melhor e-mail..."
+                autocomplete="email"
+                required
+                class="w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 outline-1 -outline-offset-1 outline-slate-300 placeholder:text-slate-400 transition hover:outline-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-teal-600 dark:bg-neutral-800 dark:text-slate-50 dark:outline-neutral-700 dark:hover:outline-neutral-600"
+              />
+              <div id="email-erro"></div>
+            </div>
+
+            <!-- Botão -->
+            <button
+              type="submit"
+              class="w-full cursor-pointer rounded-xl bg-teal-700 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800 active:scale-[0.98] active:bg-teal-900 focus:outline-2 focus:outline-offset-2 focus:outline-teal-600">
+              Criar conta
+            </button>
+          </form>
+
+          <p class="mt-8 text-sm text-slate-600 dark:text-slate-400">
+            Já tem conta?
+            <a
+              href="login.html"
+              class="font-semibold text-teal-700 underline-offset-4 hover:underline dark:text-teal-400">
+              Entrar
+            </a>
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- Configuração de validação -->
+    <script src="https://unpkg.com/just-validate@4.3.0/dist/just-validate.production.min.js"></script>
+    <script type="module" src="js/register.js"></script>
+    <script type="module" src="js/validators/register-validation.js"></script>
+  </body>
+</html>
